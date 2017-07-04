@@ -1,0 +1,17 @@
+﻿<Window x:Class="GenericEventAggregator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenericEventAggregator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance d:Type={x:Type local:MainWindowViewModel}, IsDesignTimeCreatable=False}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding Path=Persons}" SelectedItem="{Binding Path=SelectedPerson}" AutoGenerateColumns="True"/>
+        <local:PersonControl Grid.Row="1" DataContext="{Binding Path=SelectedPerson}"></local:PersonControl>
+    </Grid>
+</Window>
